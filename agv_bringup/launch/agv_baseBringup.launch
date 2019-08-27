@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!--SETUP COMMAND VELOCITY SUBSCRIBER NODE-->
+    <!-- <node name="cmdvel_subscriber_node"   pkg="a2dr_bringup"    type="cmdvel_subscriber_node.py"/> -->
+    
+    <!--SETUP SERIAL COMMUNICATION NODE-->
+    <!-- <node pkg="agv_bringup" type="serial_node.py" name="serial_node">
+        <param name="port" value="/dev/ttyBASE"/> 
+        <param name="baud" value="57600"/> 
+    </node> -->
+
+    <!--SETUP ODOMERTRY BROADCASTER NODE -->
+    <node name="odom_broadcaster_node"  pkg="agv_bringup"    type="odom_broadcaster.py"/>
+    
+    <!-- ROBOT TWIST MUX NODE -->
+    <include file="$(find twist_mux)/launch/twist_mux.launch" />
+
+</launch>

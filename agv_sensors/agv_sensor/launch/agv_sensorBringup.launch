@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch> 
+    
+    <!-- URG -->
+    <include file="$(find urg_node)/launch/urg_lidar.launch" />
+
+</launch>

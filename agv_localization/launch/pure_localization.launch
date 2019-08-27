@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Arguments -->
+    <arg name="localization_floor" default="5" doc="floor [1, 2, 3, 4, 5]"/>
+    <arg name="configuration_basename" default="agv_robot.lua"/>
+    <arg name="slam_methods" default="cartographer" doc="slam type [gmapping, cartographer]"/>
+
+    <!-- AGV model -->
+    <include file="$(find agv_description)/launch/agv_description.launch" />
+
+    <!-- URG lidar -->
+    <include file="$(find agv_sensor)/launch/includes/urglidar.launch" />
+    
+    <!-- ROBOT BRING UP NODE
+    <include file="$(find agv_bringup)/launch/agv_bringup.launch" /> -->
+
+    <!-- Localization -->
+    <node pkg="cartographer_ros" type="cartographer_node" name="cartographer_node" args="
+    -configuration_directory $(find agv_description)/config
+    -load_state_filename $(find agv_bag)/bags/agv_cartographer.bag.pbstream
+    -configuration_basename agv_localization.lua"/>
+    
+    <!-- SETUP FIXED AMCL ERROR NODE   -->
+    <!-- <node name="purePose_reset_node"  pkg="agv_localization"    type="purePose_reset.py"/> -->
+
+    <!-- GOAL TRANSFORM -->
+    <!-- <include file="$(find agv_bringup)/launch/goal.launch" /> -->
+
+     <!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find agv_localization)/rviz_config/pure_localization.rviz"/>
+
+</launch>

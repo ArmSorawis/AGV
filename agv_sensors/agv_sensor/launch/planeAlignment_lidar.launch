@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Rplidar -->
+    <include file="$(find agv_sensor)/launch/includes/urglidar.launch" />
+    
+    <!-- SETUP BRINGUP NODE -->
+    <include file="$(find agv_bringup)/launch/agv_bringup.launch" />
+
+    <!-- Parallel Alignment -->
+    <node pkg="agv_sensor" type="planeAlignment_lidar.py" name="planeAlignment_lidar_node" output="screen"/>
+</launch>

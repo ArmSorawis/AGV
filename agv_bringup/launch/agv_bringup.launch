@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- AGV BASE BRING UP -->
+    <include file="$(find agv_bringup)/launch/agv_baseBringup.launch" />
+    
+    <!-- AGV model -->
+    <include file="$(find agv_description)/launch/agv_description.launch" />
+
+    <!-- AGV SENSOR BRING UP -->
+    <include file="$(find agv_sensor)/launch/agv_sensorBringup.launch" />
+
+    <!-- AGV SOUND NODE -->
+    <include file="$(find agv_sound)/launch/agv_soundplay.launch" />
+
+    <!--SETUP SILENT SUBSCRIBER NODE-->
+    <node name="agv_silentplay_node"   pkg="agv_sound"    type="silent_soundplay.py" />
+
+    <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find agv_bringup)/rviz_config/   
+agv_odom.rviz"> 
+    </node>-->
+
+</launch>
+    

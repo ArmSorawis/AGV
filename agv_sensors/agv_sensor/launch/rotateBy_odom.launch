@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- SETUP BRINGUP NODE -->
+    <include file="$(find agv_bringup)/launch/agv_bringup.launch" />
+
+    <!-- A2DR Rotate -->
+    <node pkg="agv_sensor" type="rotateBy_odom.py" name="rotateBy_odom_node" output="screen"/>
+</launch>

@@ -1,0 +1,8 @@
+#http://www.reactivated.net/writing_udev_rules.html
+
+#sudo cp 99-ancube.rules /etc/udev/rules.d/
+#sudo udevadm control --reload-rules
+#sudo udevadm trigger
+
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0777", SYMLINK="ttyBASE"
+KERNEL=="ttyACM*", ATTRS{idVendor}=="15d1", ATTRS{idProduct}=="0000", MODE:="0777", SYMLINK="ttyLIDAR"

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <arg name="map_fileName" default="map_nav" doc="file name [fibo_f5_nav]"/>
+    <arg name="map_nav_file" default="$(find agv_navigation)/maps/$(arg map_fileName).yaml"/>
+
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_nav_file)">
+        <param name="frame_id" value="map"/>
+    </node> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_drugMachine"
+    args="15.76, 9.25, 0.0, 0.0, 0.0, -0.78, 0.63  /map /goal_1 40"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_Lab1"
+    args="18.18, 8.14, 0.0, 0.0, 0.0, -0.78, 0.63  /map /goal_2 40"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_Lab2"
+    args="12.8, 9.29, 0.0, 0.0, 0.0, -0.78, 0.63  /map /goal_3 40"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_Lab3"
+    args="7.65, 10.48, 0.0, 0.0, 0.0, -0.78, 0.63  /map /goal_4 40"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_commonRoom"
+    args="9.2, 10.93, 0.0, 0.0, 0.0, 0.63, 0.78  /map /goal_5 40"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_controlLab"
+    args="14.45, 9.72, 0.0, 0.0, 0.0, 0.63, 0.78  /map /goal_6 40"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="map_to_baseStation"
+    args="24.09, 7.16, 0.0, 0.0, 0.0, -0.1, 0.99  /map /goal_7 40"/>
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find agv_bringup)/rviz_config/view_goalFrame.rviz">
+    </node> -->
+    
+</launch>
